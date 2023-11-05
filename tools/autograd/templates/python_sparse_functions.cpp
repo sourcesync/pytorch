@@ -42,6 +42,8 @@ static PyMethodDef sparse_functions[] = {
 static PyObject* THPSparseVariableFunctionsModule = NULL;
 
 void initSparseFunctions(PyObject* module) {
+  printf("CTORCH initSparse tools\n");
+
   static struct PyModuleDef def = {
      PyModuleDef_HEAD_INIT,
      "torch._C._sparse",

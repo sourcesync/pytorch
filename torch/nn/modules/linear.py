@@ -89,6 +89,8 @@ class Linear(Module):
 
     def __init__(self, in_features: int, out_features: int, bias: bool = True,
                  device=None, dtype=None) -> None:
+        print("PTORCH: Torch nn module Linear init") 
+        import pdb; pdb.set_trace()
         factory_kwargs = {'device': device, 'dtype': dtype}
         super().__init__()
         self.in_features = in_features
@@ -111,6 +113,8 @@ class Linear(Module):
             init.uniform_(self.bias, -bound, bound)
 
     def forward(self, input: Tensor) -> Tensor:
+        print("PTORCH: Torch nn module Linear forward") 
+        import pdb; pdb.set_trace()
         return F.linear(input, self.weight, self.bias)
 
     def extra_repr(self) -> str:

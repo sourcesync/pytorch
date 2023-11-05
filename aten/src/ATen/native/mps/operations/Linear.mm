@@ -13,6 +13,8 @@ Tensor _mps_linear(const Tensor& input, const Tensor& weight_arg, const c10::opt
   // wT = transpose(weight);
   // y=x*wT+b
 
+  TORCH_CHECK(false,"CTORCH _mps_linear");
+
   auto weight = (weight_arg.dim() == 1) ? weight_arg.view({1, weight_arg.size(0)}) : weight_arg;
 
   TORCH_CHECK(input.scalar_type() == ScalarType::Float || input.scalar_type() == ScalarType::Half,
@@ -69,6 +71,8 @@ Tensor _mps_linear(const Tensor& input, const Tensor& weight_arg, const c10::opt
                                                           withDimension:-2
                                                                    name:nil];
       MPSGraphTensor* outputTensor = nil;
+
+      TORCH_CHECK(false, "CTORCH before matrixmult aten/src/ATen/native/mps/operations/Linear.mm");
 
       if (!is_bias_defined) {
         outputTensor = [mpsGraph matrixMultiplicationWithPrimaryTensor:inputTensor

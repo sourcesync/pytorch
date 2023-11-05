@@ -5,12 +5,13 @@ DIM_TO      = 2
 
 REM_DIM     = 1
 
-TOTAL_VECS  = 10000
+TOTAL_VECS  = 100
 
 SPLITS      = [ 0.8, 0.2, 0.2 ]
 
 SEED        = 42
 
+import pdb; pdb.set_trace()
 
 #
 # imports
@@ -27,6 +28,8 @@ import torch.optim as optim
 #from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 import pandas as pd
+
+import pdb; pdb.set_trace()
 
 #
 # create a bunch of candidate neural net architectures
@@ -140,7 +143,7 @@ def main():
     scheduler = StepLR(optimizer, step_size=1, gamma=0.7)
 
     # the training loop for this model
-    for epoch in range(1, 10):
+    for epoch in range(1, 1):
         tr_loss = train(model, device, train_loader, optimizer, epoch)
         val_loss = validate(model, device, validate_loader)
         print("Training losses=", tr_loss, val_loss)
