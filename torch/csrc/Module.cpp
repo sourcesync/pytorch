@@ -66,6 +66,7 @@
 #include <torch/csrc/lazy/python/init.h>
 #include <torch/csrc/monitor/python_init.h>
 #include <torch/csrc/mps/Module.h>
+#include <torch/csrc/apu/Module.h> //GW
 #include <torch/csrc/multiprocessing/init.h>
 #include <torch/csrc/onnx/init.h>
 #include <torch/csrc/profiler/python/init.h>
@@ -1301,6 +1302,8 @@ PyObject* initModule() {
   THPUtils_addPyMethodDefs(methods, torch::autograd::python_functions());
   THPUtils_addPyMethodDefs(methods, torch::multiprocessing::python_functions());
   THPUtils_addPyMethodDefs(methods, torch::mps::python_functions());
+//GW
+  THPUtils_addPyMethodDefs(methods, torch::apu::python_functions());
 #ifdef USE_CUDA
   THPUtils_addPyMethodDefs(methods, THCPModule_methods());
 #endif

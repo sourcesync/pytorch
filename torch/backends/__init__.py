@@ -65,4 +65,5 @@ from torch.backends import (
     mps as mps,
     openmp as openmp,
     quantized as quantized,
+    apu as apu
 )

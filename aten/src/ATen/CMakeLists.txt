@@ -110,6 +110,11 @@ file(GLOB_RECURSE native_mps_cpp "native/mps/*.cpp")
 file(GLOB_RECURSE native_mps_mm "native/mps/*.mm")
 file(GLOB_RECURSE native_mps_h "native/mps/*.h")
 
+# GW APU
+file(GLOB apu_cpp "apu/*.cpp")
+file(GLOB apu_mm "apu/*.mm")
+file(GLOB apu_h "apu/*.h")
+
 file(GLOB native_sparse_cpp "native/sparse/*.cpp")
 file(GLOB native_quantized_cpp
             "native/quantized/*.cpp"
@@ -529,6 +534,10 @@ endif()
 
 if(USE_MPS)
     set(ATen_MPS_SRCS ${ATen_MPS_SRCS} ${mps_cpp} ${mps_mm} ${mps_h} ${native_mps_cpp} ${native_mps_mm} ${native_mps_h})
+endif()
+#GW
+if(USE_APU)
+    set(ATen_APU_SRCS ${ATen_APU_SRCS} ${apu_cpp} ${apu_mm} ${apu_h})
 endif()
 
 if(USE_ROCM)

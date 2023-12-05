@@ -232,6 +232,8 @@ option(USE_NATIVE_ARCH "Use -march=native" OFF)
 cmake_dependent_option(
     USE_MPS "Use MPS for macOS build" ON
     "MPS_FOUND" OFF)
+#GW
+option(USE_APU "Use APU" ON)
 cmake_dependent_option(
     USE_NCCL "Use NCCL" ON
     "USE_CUDA OR USE_ROCM;UNIX;NOT APPLE" OFF)

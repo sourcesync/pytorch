@@ -93,6 +93,8 @@ class CMake:
 
         command = [self._cmake_command] + args
         print(" ".join(command))
+        print("GW PTORCH run command in ", self.build_dir)
+        #sys.exit(1)
         try:
             check_call(command, cwd=self.build_dir, env=env)
         except (CalledProcessError, KeyboardInterrupt) as e:
