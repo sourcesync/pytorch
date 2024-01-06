@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+set -x
+
+mkdir -p gw_out
+
 export BUILD_CUSTOM_PROTOBUF=1
 export USE_PYTORCH_METAL=0
 export CXX=/usr/bin/g++
