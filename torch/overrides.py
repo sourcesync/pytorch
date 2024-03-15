@@ -1606,6 +1606,7 @@ def handle_torch_function(
     ...         return handle_torch_function(func, (a,), a)
     ...     return a + 0
     """
+    print("PTORCH","torch/overrides", "handle_torch_function")
     # Check for __torch_function__ methods.
     overloaded_args = _get_overloaded_args(relevant_args)
     # overloaded_args already have unique types.

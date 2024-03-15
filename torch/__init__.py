@@ -1863,6 +1863,8 @@ def compile(model: Optional[Callable] = None, *,
             return torch.sin(x) + torch.cos(x)
 
     """
+    print("PTORCH compile __init__")
+    print("PTORCH compile __init__")
     _C._log_api_usage_once("torch.compile")
     # Temporary until we get proper support for python 3.12
     if sys.version_info >= (3, 12):

@@ -88,6 +88,7 @@ static PyMethodDef nn_functions[] = {
 };
 
 void initNNFunctions(PyObject* module) {
+  printf("CTORCH initNNFunctions tools \n");
   static struct PyModuleDef def = {
      PyModuleDef_HEAD_INIT,
      "torch._C._nn",

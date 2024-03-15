@@ -59,6 +59,9 @@ namespace native {
 Tensor mkldnn_linear(
     const Tensor& self,
     const Tensor& weight_t, const c10::optional<Tensor>& bias_opt) {
+
+  printf("CTORCH mkldnn_linear\n");
+
   // See [Note: hacky wrapper removal for optional tensor]
   c10::MaybeOwned<Tensor> bias_maybe_owned = at::borrow_from_optional_tensor(bias_opt);
   const Tensor& bias = *bias_maybe_owned;

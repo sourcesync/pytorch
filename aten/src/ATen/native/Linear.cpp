@@ -78,6 +78,8 @@ Tensor linear(const Tensor& input, const Tensor& weight, const c10::optional<Ten
               "both arguments to linear need to be at least 1D, but they are ",
               input_dim, "D and ", weight_dim, "D");
 
+  printf("CTORCH Tensor linear ATen/native/Linear.cpp\n");
+ 
   // See [Note: hacky wrapper removal for optional tensor]
   auto bias = bias_opt.has_value()
     ? c10::MaybeOwned<Tensor>::borrowed(*bias_opt)

@@ -13,6 +13,8 @@ Tensor _mps_linear(const Tensor& input, const Tensor& weight_arg, const c10::opt
   // wT = transpose(weight);
   // y=x*wT+b
 
+  TORCH_CHECK(false,"CTORCH _mps_linear");
+
   auto weight = (weight_arg.dim() == 1) ? weight_arg.view({1, weight_arg.size(0)}) : weight_arg;
 
   TORCH_CHECK(supportedFloatingType(input), "MPS device does not support linear for non-float inputs");
@@ -70,6 +72,9 @@ Tensor _mps_linear(const Tensor& input, const Tensor& weight_arg, const c10::opt
       // matrixMultiplicationWithPrimary crashes for 5D tensors, see https://github.com/pytorch/pytorch/issues/114942
       bool doReshape = input.dim() > 4;
       if (!doReshape && is_bias_defined) {
+      
+	TORCH_CHECK(false, "CTORCH before matrixmult aten/src/ATen/native/mps/operations/Linear.mm");
+
         // workaround to improve the performance with 3D+ inputs
         doReshape =
             input_size.size() > 2 && input_size[0] > 1 && input_size[1] >= 1 && input_size[1] <= 32 && bias.dim() <= 1;

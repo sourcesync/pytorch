@@ -61,6 +61,8 @@ void LinearImpl::pretty_print(std::ostream& stream) const {
 }
 
 Tensor LinearImpl::forward(const Tensor& input) {
+  std::cout << "CTORCH:  LinearImpl" << std::endl;
+  printf("CTORCH:  LinearImpl\n");
   return F::linear(input, weight, bias);
 }
 
